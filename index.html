@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pl">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
     <title>Title</title>
+    <link rel="stylesheet" href="css/main.scss">
 </head>
 <body>
+<header class="header">
+    <div class="header__container">
+        <a href="#" class="name">Imię</a>
+        <nav>
+            <ul class="header__nav">
+                <li class="nav__element">Plan tygodnia</li>
+                <li class="nav__element">Lista uczniów</li>
+                <li class="nav__element">Materiały edukacyjne</li>
+                <li class="nav__element">Podstawa programowa</li>
+                <li class="nav__element">Notatki</li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <div id="app"></div>
+</main>
 
+<script type="module" src="js/app.jsx"></script>
 </body>
 </html>
+
