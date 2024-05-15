@@ -1,0 +1,7 @@
+@import 'variables';
+
+@function rem($n) {
+  $base-size: $base-font-size / 1px;
+  $rem: $n / $base-size;
+  @return #{$rem}rem;
+}

@@ -1,0 +1,30 @@
+@import '../generic/variables';
+@import '../generic/colors';
+@import '../generic/functions';
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: $color-header;
+  height: rem(80);
+  font-size: rem(20);
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+
+    .name {
+      text-decoration: none;
+      color: black;
+    }
+
+    .header__nav {
+      display: flex;
+      column-gap: rem(20);
+        a {
+          text-decoration: none;
+          color: black;
+        }
+    }
+  }
+}

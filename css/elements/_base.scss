@@ -1,0 +1,21 @@
+@import '../generic/colors';
+@import '../generic/functions';
+
+html, body {
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+}
+
+
+.container {
+  width: rem(1400);
+  margin: 0 auto;
+}
+
+.background {
+  height: calc(100% - 160px);
+  background-color: #b9d3f6;
+}

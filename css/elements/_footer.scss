@@ -1,0 +1,11 @@
+@import '../generic/colors';
+@import '../generic/functions';
+
+.footer {
+  height: rem(80);
+  width: 100%;
+  background-color: $color-header;
+  position: absolute;
+  bottom: 0;
+}
+
