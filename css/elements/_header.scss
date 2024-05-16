@@ -17,15 +17,45 @@
     .name {
       text-decoration: none;
       color: black;
+      text-transform: uppercase;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      font-style: oblique;
+      border: 2px solid black;
+      border-radius: 21px;
+      padding: rem(10) rem(20);
+      background-color: lightgray;
+      box-shadow: 2px 2px 5px black;
+      &:active{
+        box-shadow: inset 2px 2px 5px black;
+      }
     }
 
-    .header__nav {
+    nav {
       display: flex;
-      column-gap: rem(20);
-        a {
-          text-decoration: none;
-          color: black;
+      align-items: center;
+      .header__nav {
+        display: flex;
+        column-gap: rem(20);
+
+        .nav__element {
+          font-family: 'Arial', sans-serif;
+          font-weight: bold;
+          font-style: oblique;
+          border: 2px solid black;
+          border-radius: 21px;
+          padding: rem(6) rem(14);
+          background-color: #a6dca6;
+          box-shadow: 2px 2px 5px black;
+          &:active{
+            box-shadow: inset 2px 2px 5px black;
+          }
+          a {
+            text-decoration: none;
+            color: black;
+          }
         }
+      }
     }
   }
 }

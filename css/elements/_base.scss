@@ -16,6 +16,15 @@ html, body {
   margin: 0 auto;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
+.disabled-link {
+  pointer-events: none;
+  color: grey !important;
+}
+
 .background {
   height: calc(100% - 160px);
   background-color: #b9d3f6;
