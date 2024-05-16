@@ -1,14 +1,15 @@
 @import '../generic/colors';
 @import '../generic/functions';
+@import '../generic/variables';
 
 html, body {
   height: 100%;
+  font-size: $base-font-size;
 }
 
 #app {
   height: 100%;
 }
-
 
 .container {
   width: rem(1400);
@@ -18,4 +19,7 @@ html, body {
 .background {
   height: calc(100% - 160px);
   background-color: #b9d3f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
