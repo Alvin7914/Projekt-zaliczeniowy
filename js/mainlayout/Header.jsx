@@ -2,10 +2,11 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const Header = () => {
+
     return (
         <header className='header'>
             <div className="header__container container">
-                <a href="/" className="name">Imię</a>
+                <a href="/" className="name">{localStorage.getItem('name')}</a>
                 <nav>
                     <ul className="header__nav">
                         <li className="nav__element"><Link to='/schedule'>Plan zajęć</Link></li>
