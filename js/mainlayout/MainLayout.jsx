@@ -2,12 +2,15 @@ import React, {useState, useEffect} from "react";
 import {Outlet} from "react-router-dom";
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
+import LoginWindow from "../components/LoginWindow.jsx";
 
 const MainLayout = () => {
     return (
         <>
             <Header></Header>
-            <Outlet />
+            <main className='background'>
+                {localStorage.getItem('name') === null ? <LoginWindow /> : <Outlet />}
+            </main>
             <Footer></Footer>
         </>
     );
