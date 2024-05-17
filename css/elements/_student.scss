@@ -1,0 +1,16 @@
+@import '../generic/colors';
+@import '../generic/functions';
+
+.student__item {
+  background-color: $color-table-cell;
+  padding: rem(10);
+  border: 1px solid black;
+  p {
+    margin-bottom: rem(10);
+    text-align: center;
+    font-style: oblique;
+    &:nth-child(4) {
+      margin-bottom: 0;
+    }
+  }
+}
