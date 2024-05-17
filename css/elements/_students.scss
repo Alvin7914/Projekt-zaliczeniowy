@@ -7,7 +7,7 @@
   align-items: flex-start;
   gap: rem(20);
   .students__box {
-    padding: rem(30);
+    padding: rem(30) rem(30) rem(10) rem(30);
     background-color: $color-schedules-box;
     border: 2px solid red;
     border-radius: 10px;
@@ -16,6 +16,7 @@
       font-size: rem(20);
       font-weight: bold;
       margin-bottom: rem(20);
+      text-align: center;
     }
   }
 

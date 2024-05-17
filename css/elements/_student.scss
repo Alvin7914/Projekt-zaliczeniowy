@@ -1,10 +1,15 @@
 @import '../generic/colors';
 @import '../generic/functions';
 
+.margin-bottom20 {
+  margin-bottom: rem(20);
+}
+
 .student__item {
   background-color: $color-table-cell;
   padding: rem(10);
   border: 1px solid black;
+  border-radius: 10px;
   p {
     margin-bottom: rem(10);
     text-align: center;
