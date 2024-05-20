@@ -1,0 +1,73 @@
+@import '../generic/functions';
+@import '../generic/colors';
+
+.students {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(20);
+  .students__box {
+    padding: rem(30) rem(30) rem(10) rem(30);
+    background-color: $color-schedules-box;
+    border: 2px solid red;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #484646;
+    h2 {
+      font-size: rem(20);
+      font-weight: bold;
+      margin-bottom: rem(20);
+      text-align: center;
+    }
+  }
+
+  .new-student-btn {
+    border: 2px solid black;
+    border-radius: 21px;
+    background-color: #a6dca6;
+    box-shadow: 2px 2px 5px black;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-style: oblique;
+    padding: rem(6) rem(14);
+    position: absolute;
+    top: rem(30);
+    left: rem(90);
+    &:active{
+      box-shadow: inset 2px 2px 5px black;
+    }
+  }
+
+  form.students__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    background-color: #f1eed6;
+    border: 2px solid #454343;
+    border-radius: 30px;
+    box-shadow: 5px 5px 5px #454343;
+    padding: rem(20);
+    position: absolute;
+    top: rem(30);
+    left: rem(30);
+    input {
+      width: rem(200);
+      font-size: rem(20);
+      padding: rem(5);
+      border-radius: 10px;
+      border: 1px solid black;
+      font-family: 'Times New Roman', sans-serif;
+    }
+    button {
+      background-color: #c0ba8e;
+      border: 1px solid black;
+      border-radius: 10px;
+      padding: rem(5) rem(30);
+      font-size: rem(20);
+      font-style: oblique;
+      font-family: 'Times New Roman', sans-serif;
+      font-weight: 600;
+    }
+  }
+}
+

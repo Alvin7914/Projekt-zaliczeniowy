@@ -7,7 +7,6 @@ import Students from "./components/Students.jsx";
 import Materials from "./components/Materials.jsx";
 import Curriculum from "./components/Curriculum.jsx";
 import Notes from "./components/Notes.jsx";
-import loginWindow from "./components/LoginWindow.jsx";
 
 const App = () => {
 
