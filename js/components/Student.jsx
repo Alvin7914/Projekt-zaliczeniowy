@@ -1,6 +1,6 @@
 import React from "react";
 
-const Student = ({item: {id, name, surname, address, phone}, removeStudent}) => {
+const Student = ({item: {id, name, surname, address, phone}, removeStudent}) => { // props z obiektem item i funkcją usuwania ucznia
     return (
         <li className='margin-bottom20' id={`student-${id}`}>
             <div className='student__item'>
@@ -9,6 +9,7 @@ const Student = ({item: {id, name, surname, address, phone}, removeStudent}) => 
                 <p>{address}</p>
                 <p>tel. {phone}</p>
             </div>
+
             <svg xmlns="http://www.w3.org/2000/svg"
                  viewBox="0 0 448 512"
             width='20'

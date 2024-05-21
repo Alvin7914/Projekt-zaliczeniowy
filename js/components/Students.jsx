@@ -3,10 +3,11 @@ import Student from "./Student.jsx";
 import NewStudentValidationErrors from "./NewStudentValidationErrors.jsx";
 
 const Students = () => {
-
+// stany do aktualizacji listy uczniów i errorów walidacji formularza nowego ucznia
 const [studentsTable, setStudentsTable] = useState([]);
 const [errorsArray, setErrorsArray] = useState([])
 
+    //sprawdzenie czy lista studentów już istnieje
     useEffect(() => {
         if (localStorage.getItem('studentsList') !== null) {
             setStudentsTable(JSON.parse(localStorage.getItem('studentsList')))
@@ -23,6 +24,7 @@ const [errorsArray, setErrorsArray] = useState([])
         return /^[0-9]*$/.test(str);
     }
 
+    // handler do usuwania ucznia, przekazywany w propsach do komponentu Student
     const removeStudent = (id) => {
         const listItem = document.getElementById(`student-${id}`);
         const studentsList = JSON.parse(localStorage.getItem('studentsList'));
@@ -30,10 +32,9 @@ const [errorsArray, setErrorsArray] = useState([])
 
         setStudentsTable(state => state.filter(student => student.id !== id))
         localStorage.setItem('studentsList', JSON.stringify(updatedStudentsList));
+    };
 
-        // listItem.remove();
-    }; // handler do usuwania studenta, przekazywany w propsach do komponentu Student
-
+    // handler do ukrywania przycisku dodawania studenta i pokazywania okna z formularzem
     const switchHidden = (e) => {
         e.preventDefault();
 
@@ -42,22 +43,28 @@ const [errorsArray, setErrorsArray] = useState([])
 
         button.classList.toggle('hidden');
         form.classList.toggle('hidden');
-    }; // handler do ukrywania przycisku dodawania studenta i pokazywania okna z formularzem
+    };
 
+    // handler do anulowania dodawania nowego ucznia
     const cancelNewStudent = (e) => {
         const button = document.querySelector('.new-student-btn');
         const form = document.querySelector('.students__form');
 
+        //chowanie okna dodawania ucznia
         button.classList.toggle('hidden');
         form.classList.toggle('hidden');
+
+        // czyszczenie listy errorów walidacji
         setErrorsArray([]);
 
+        // czyszczenie inputów
         e.target.parentElement.parentElement.children[0].value = '';
         e.target.parentElement.parentElement.children[1].value = '';
         e.target.parentElement.parentElement.children[2].value = '';
         e.target.parentElement.parentElement.children[3].value = '';
     };
 
+    // handler submitujący formularz dodawania ucznia z walidacją
     const handleSubmit = (e) => {
         e.preventDefault();
         const inputName = document.querySelector('#input-name').value;
@@ -68,12 +75,12 @@ const [errorsArray, setErrorsArray] = useState([])
         setErrorsArray([]);
         let errors = [];
 
+        // niepomyślna walidacja
         if (!inputName || !inputSurname || !inputAddress || !inputPhone) {
             const error1 = 'Wszystkie pola muszą być uzupełnione';
             setErrorsArray(state => [...state, error1]);
             errors.push(error1);
         }
-
         if (inputName.length < 4 || inputName.length > 16) {
             const error2 = 'Imię musi składać się z co najmniej 4 oraz co najwyżej 16 liter'
             setErrorsArray(state => [...state, error2])
@@ -95,9 +102,9 @@ const [errorsArray, setErrorsArray] = useState([])
             errors.push(error5)
         }
 
-
+        // pomyślna walidacja
         if (errors.length === 0) {
-            switchHidden(e);
+            switchHidden(e); //ukrycie okna dodawania ucznia
 
             const updatedStudent = {
                 id: (localStorage.getItem('studentsList') === null || JSON.parse(localStorage.getItem('studentsList')).length === 0)
@@ -110,7 +117,7 @@ const [errorsArray, setErrorsArray] = useState([])
             }; // sczytanie danych z odpowiednich pól formularza i przypisanie ich do kluczy w obiekcie ucznia
 
 
-            setStudentsTable(state => [...state, updatedStudent])
+            setStudentsTable(state => [...state, updatedStudent])// aktualizacja stanu i localStorage
             localStorage.setItem('studentsList', JSON.stringify([...studentsTable, updatedStudent]))
 
 
@@ -128,9 +135,10 @@ const [errorsArray, setErrorsArray] = useState([])
             <div className='students__box'>
                 <h2>Lista uczniów</h2>
                 <ul className='students__list'>
-                    {((studentsTable) === [] || studentsTable.length === 0)
-                    ? <li style={{textAlign: 'center'}}>Brak uczniów...</li>
-                        : studentsTable.map(item => <Student key={item.id} item={item} removeStudent={removeStudent}/>)}
+                    {(studentsTable.length === 0)
+                    ? <li style={{textAlign: 'center'}}>Brak uczniów...</li>// wyrenderowanie odpowiedniego 'li' gdy lista uczniów jest pusta
+                        : studentsTable.map(item => <Student key={item.id} item={item} removeStudent={removeStudent}/>) //mapowanie listy uczniów
+                        }
                 </ul>
             </div>
             <button className='new-student-btn' onClick={switchHidden}>Nowy uczeń</button>
