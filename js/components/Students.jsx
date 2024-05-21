@@ -131,7 +131,7 @@ const [errorsArray, setErrorsArray] = useState([])
     };
 
     return (
-        <div className='students'>
+        <section className='students'>
             <div className='students__box'>
                 <h2>Lista uczniów</h2>
                 <ul className='students__list'>
@@ -154,7 +154,7 @@ const [errorsArray, setErrorsArray] = useState([])
                     </div>
                     <NewStudentValidationErrors errorsArray={errorsArray} />
                 </form>
-        </div>
+        </section>
     );
 };
 export default Students;

@@ -2,7 +2,7 @@ import React from "react";
 
 const Schedules = () => {
     return (
-        <div className='schedules__box'>
+        <section className='schedules__box'>
             <table className='schedules__table'>
                 <caption>
                     Tygodniowy plan zajęć
@@ -62,7 +62,7 @@ const Schedules = () => {
                 </tr>
                 </tbody>
             </table>
-        </div>
+        </section>
     );
 };
 
