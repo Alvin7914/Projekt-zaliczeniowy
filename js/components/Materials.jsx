@@ -2,7 +2,16 @@ import React from "react";
 
 const Materials = () => {
     return (
-        <a href='https://zsp3.jaworzno.edu.pl/wp-content/uploads/2015/10/wzory-skr%C3%B3conego-mno%C5%BCenia.pdf' target='_blank'>link</a>
+        <section className='materials__columns'>
+            <div className='materials__files'>
+                <h2>Pliki</h2>
+                <div></div>
+            </div>
+            <div className='materials__useful-sites'>
+                <h2>Przydatne strony</h2>
+                <div></div>
+            </div>
+        </section>
     );
 };
 export default Materials;
