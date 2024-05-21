@@ -10,10 +10,10 @@ const [newStudent, setNewStudent] = useState({
     surname: ``,
     address: ``,
     phone: 0
-});
+});  // pusty obiekt z danymi nowego ucznia
 
-const studentsTable = (localStorage.getItem('studentsList') === null) ? [] : JSON.parse(localStorage.getItem('studentsList'));
-    console.log(studentsTable)
+const studentsTable = (localStorage.getItem('studentsList') === null) ? [] : JSON.parse(localStorage.getItem('studentsList')); // ustawienie tablicy wykorzystaywanej w local storage na pustą lub, w przypadku gdy zmienna 'studentsList' już istniała w localStorage, na tą z localStorage
+
     const switchHidden = (e) => {
         e.preventDefault();
 
@@ -22,7 +22,7 @@ const studentsTable = (localStorage.getItem('studentsList') === null) ? [] : JSO
 
         button.classList.toggle('hidden');
         form.classList.toggle('hidden');
-    };
+    }; // handler do ukrywania przycisku dodawania studenta i pokazywania okna z formularzem
 
     const handleSubmit = (e) => {
         switchHidden(e);
@@ -35,7 +35,7 @@ const studentsTable = (localStorage.getItem('studentsList') === null) ? [] : JSO
             surname: `${e.target.children[1].value}`,
             address: `${e.target.children[2].value}`,
             phone: parseInt(e.target.children[3].value),
-        };
+        }; // sczytanie danych z odpowiednich pól formularza i przypisanie ich do kluczy w obiekcie ucznia
 
         // setStudentsList(state => [...state, newStudent])
         // setStudentsList(state => [...state, updatedStudent])
