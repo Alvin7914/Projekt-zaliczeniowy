@@ -1,1 +1,63 @@
 @import 'variables';
+@import 'colors';
+@import 'functions';
+
+@mixin main-box {
+  background-color: $color-schedules-box;
+  border: 2px solid red;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #484646;
+}
+
+@mixin secondary-box {
+  background-color: #f1eed6;
+  border: 2px solid #454343;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px #454343;
+}
+
+@mixin ternary-box {
+  background-color: $color-table-cell;
+  padding: rem(10);
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+@mixin main-btn {
+  border: 2px solid black;
+  border-radius: 21px;
+  background-color: #a6dca6;
+  box-shadow: 2px 2px 5px black;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  font-style: oblique;
+  padding: rem(6) rem(14);
+}
+
+@mixin secondary-btn {
+  background-color: #c0ba8e;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: rem(5) rem(30);
+  font-size: rem(20);
+  font-style: oblique;
+  font-family: 'Times New Roman', sans-serif;
+  font-weight: 600;
+}
+
+@mixin h2-title {
+  font-size: rem(20);
+  font-weight: bold;
+  margin-bottom: rem(20);
+  text-align: center;
+}
+
+@mixin ul-list-element-with-svg {
+  margin-bottom: rem(20);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    cursor: pointer;
+  }
+}

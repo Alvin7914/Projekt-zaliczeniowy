@@ -1,0 +1,30 @@
+@import '../generic/colors';
+@import '../generic/functions';
+@import '../generic/mixins';
+
+.materials {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: rem(20);
+  .materials__list {
+    padding: rem(30) rem(30) rem(10) rem(30);
+    @include main-box;
+    .materials__ {
+      &files {
+        display: flex;
+        flex-direction: column;
+        h2 {
+          @include h2-title;
+        }
+      }
+      &useful-sites {
+        display: flex;
+        flex-direction: column;
+        h2 {
+          @include h2-title;
+        }
+      }
+    }
+  }
+}

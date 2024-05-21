@@ -1,6 +1,7 @@
 @import '../generic/variables';
 @import '../generic/colors';
 @import '../generic/functions';
+@import '../generic/mixins';
 
 .header {
   display: flex;
@@ -39,18 +40,13 @@
         column-gap: rem(20);
 
         .nav__element {
-          border: 2px solid black;
-          border-radius: 21px;
-          background-color: #a6dca6;
-          box-shadow: 2px 2px 5px black;
+          @include main-btn;
           cursor: pointer;
+          padding: 0;
           &:active{
             box-shadow: inset 2px 2px 5px black;
           }
           a {
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-            font-style: oblique;
             display: block;
             width: 100%;
             height: 100%;

@@ -2,7 +2,7 @@ import React from "react";
 
 const Student = ({item: {id, name, surname, address, phone}, removeStudent}) => { // props z obiektem item i funkcją usuwania ucznia
     return (
-        <li className='margin-bottom20' id={`student-${id}`}>
+        <li className='student__instance' id={`student-${id}`}>
             <div className='student__item'>
                 <p>{name}</p>
                 <p>{surname}</p>

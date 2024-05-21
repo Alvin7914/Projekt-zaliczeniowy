@@ -1,23 +1,15 @@
 @import '../generic/colors';
 @import '../generic/functions';
+@import '../generic/mixins';
 
 
 
-.margin-bottom20 {
-  margin-bottom: rem(20);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  svg {
-    cursor: pointer;
-  }
+.student__instance {
+  @include ul-list-element-with-svg;
 }
 
 .student__item {
-  background-color: $color-table-cell;
-  padding: rem(10);
-  border: 1px solid black;
-  border-radius: 10px;
+  @include ternary-box;
   margin-right: rem(20);
   p {
     margin-bottom: rem(10);
