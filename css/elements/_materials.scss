@@ -8,6 +8,9 @@
   align-items: flex-start;
   gap: rem(20);
   .materials__list {
+    display: flex;
+    //justify-content: center;
+    //align-items: center;
     padding: rem(30) rem(30) rem(10) rem(30);
     @include main-box;
     .materials__ {
@@ -23,6 +26,92 @@
         flex-direction: column;
         h2 {
           @include h2-title;
+        }
+      }
+    }
+  }
+
+
+  .new-file__box {
+    position: absolute;
+    top: rem(30);
+    left: rem(30);
+    .new-file- {
+      &btn {
+        @include main-btn;
+        position: absolute;
+        top: 0;
+        left: rem(68);
+        width: rem(107);
+        &:active{
+          box-shadow: inset 2px 2px 5px black;
+        }
+      }
+      &form {
+        @include secondary-box;
+        @include adding-form-styles;
+        input {
+          @include input-new-element;
+        }
+        div {
+          position: relative;
+          button {
+            @include secondary-btn;
+          }
+          span {
+            @include x-mark-spans;
+            top: 14px;
+            left: 130px;
+            &.cancel-1 {
+              transform: rotate(45deg);
+            }
+            &.cancel-2 {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .new-site__box {
+    position: absolute;
+    top: rem(30);
+    left: rem(30);
+    .new-site- {
+      &btn {
+        @include main-btn;
+        position: absolute;
+        top: rem(60);
+        left: rem(57);
+        width: rem(128);
+        &:active{
+          box-shadow: inset 2px 2px 5px black;
+        }
+      }
+      &form {
+        @include secondary-box;
+        @include adding-form-styles;
+        input {
+          @include input-new-element;
+        }
+        div {
+          position: relative;
+          button {
+            @include secondary-btn;
+          }
+          span {
+            @include x-mark-spans;
+            top: 14px;
+            left: 130px;
+            &.cancel-1 {
+              transform: rotate(45deg);
+            }
+            &.cancel-2 {
+              transform: rotate(-45deg);
+            }
+          }
         }
       }
     }

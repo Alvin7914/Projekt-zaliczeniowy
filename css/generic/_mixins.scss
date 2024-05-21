@@ -46,7 +46,7 @@
 }
 
 @mixin h2-title {
-  font-size: rem(20);
+  font-size: rem(25);
   font-weight: bold;
   margin-bottom: rem(20);
   text-align: center;
@@ -60,4 +60,31 @@
   svg {
     cursor: pointer;
   }
+}
+
+@mixin adding-form-styles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  padding: rem(20);
+}
+
+@mixin x-mark-spans {
+  width: 20px;
+  height: 5px;
+  background-color: red;
+  display: block;
+  cursor: pointer;
+  border-radius: 3px;
+  position: absolute;
+}
+
+@mixin input-new-element {
+  width: rem(200);
+  font-size: rem(20);
+  padding: rem(5);
+  border-radius: 10px;
+  border: 1px solid black;
+  font-family: 'Times New Roman', sans-serif;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-const UsefulSite = ({file: {id, name, link}, removeSite}) => {
+const UsefulSite = ({site: {id, name, link}, removeSite}) => {
     return (
         <li className='site__instance' id={`site-${id}`}>
             <a href={link}>{name}</a>

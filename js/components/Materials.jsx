@@ -8,6 +8,11 @@ const Materials = () => {
     const [fileErrorsArray, setFileErrorsArray] = useState([]);
     const [siteErrorsArray, setSiteErrorsArray] = useState([]);
 
+    const btnNewFile = document.querySelector('.new-file-btn');
+    const btnNewSite = document.querySelector('.new-site-btn');
+    const fileForm = document.querySelector('.new-file-form');
+    const siteForm = document.querySelector('.new-site-form');
+
     useEffect(() => {
         if (localStorage.getItem('filesList') !== null) {
             setFilesTable(JSON.parse(localStorage.getItem('filesList')))
@@ -35,7 +40,14 @@ const Materials = () => {
 
 
     // TU DODAC HANDLERy DO CHOWANIA OKIENKA DODAWANIA itp.
-    const switchHiddenNewFile = () => {};
+    const switchHiddenNewFile = (e) => {
+        e.preventDefault();
+
+        btnNewFile.classList.toggle('d-none');
+        btnNewSite.classList.toggle('d-none');
+        fileForm.classList.toggle('d-none');
+        siteForm.classList.toggle('d-none');
+    };
 
     const switchHiddenNewSite = () => {};
 
@@ -62,13 +74,16 @@ const Materials = () => {
                 <div className='materials__useful-sites'>
                     <h2>Przydatne strony</h2>
                     <ul className='useful-sites-list'>
-
+                        {(sitesTable.length === 0)
+                            ? <li style={{textAlign: 'center'}}>Brak stron...</li>// wyrenderowanie odpowiedniego 'li' gdy lista stron jest pusta
+                            : filesTable.map(site => <UsefulSite key={site.id} site={site} removeSite={removeSite}/>) //mapowanie listy stron
+                        }
                     </ul>
                 </div>
             </div>
             <div className='new-file__box'>
                 <button className='new-file-btn' onClick={switchHiddenNewFile}>Nowy plik</button>
-                <form className='new-file-form' onSubmit={handleSubmitNewFile}>
+                <form className='new-file-form d-none' onSubmit={handleSubmitNewFile}>
                     <input type="text" placeholder='Nazwa' id='input-file-name'/>
                     <input type="url" placeholder='Adres URL' id='input-file-url'/>
                     <div>
@@ -79,8 +94,8 @@ const Materials = () => {
                 </form>
             </div>
             <div className='new-site__box'>
-                <button className='new-site-btn' onClick={switchHiddenNewSite}></button>
-                <form className='new-site-form' onSubmit={handleSubmitNewSite}>
+                <button className='new-site-btn' onClick={switchHiddenNewSite}>Nowa strona</button>
+                <form className='new-site-form d-none' onSubmit={handleSubmitNewSite}>
                     <input type="text" placeholder='Nazwa' id='input-site-name'/>
                     <input type="url" placeholder='Adres URL' id='input-site-url'/>
                     <div>
