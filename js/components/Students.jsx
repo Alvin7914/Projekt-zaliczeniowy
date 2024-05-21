@@ -1,18 +1,24 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Student from "./Student.jsx";
 
 const Students = () => {
 
-const [studentsList, setStudentsList] = useState([]);
-const [newStudent, setNewStudent] = useState({
-    id: 0,
-    name: ``,
-    surname: ``,
-    address: ``,
-    phone: 0
-});  // pusty obiekt z danymi nowego ucznia
+const [studentsTable, setStudentsTable] = useState([]);
 
-const studentsTable = (localStorage.getItem('studentsList') === null) ? [] : JSON.parse(localStorage.getItem('studentsList')); // ustawienie tablicy wykorzystaywanej w local storage na pustą lub, w przypadku gdy zmienna 'studentsList' już istniała w localStorage, na tą z localStorage
+    useEffect(() => {
+        if (localStorage.getItem('studentsList') !== null) {
+            setStudentsTable(JSON.parse(localStorage.getItem('studentsList')))
+        }
+    }, []);
+
+    const removeStudent = (id) => {
+        const listItem = document.getElementById(`student-${id}`);
+        const studentsList = JSON.parse(localStorage.getItem('studentsList'));
+        const updatedStudentsList = studentsList.filter(student => student.id !== id);
+        localStorage.setItem('studentsList', JSON.stringify(updatedStudentsList));
+
+        listItem.remove();
+    }; // handler do usuwania studenta, przekazywany w propsach do komponentu Student
 
     const switchHidden = (e) => {
         e.preventDefault();
@@ -37,11 +43,16 @@ const studentsTable = (localStorage.getItem('studentsList') === null) ? [] : JSO
             phone: parseInt(e.target.children[3].value),
         }; // sczytanie danych z odpowiednich pól formularza i przypisanie ich do kluczy w obiekcie ucznia
 
-        // setStudentsList(state => [...state, newStudent])
-        // setStudentsList(state => [...state, updatedStudent])
-        studentsTable.push(updatedStudent);
-        localStorage.setItem('studentsList', JSON.stringify(studentsTable))
-        location.reload();
+
+        setStudentsTable(state => [...state, updatedStudent])
+        localStorage.setItem('studentsList', JSON.stringify([...studentsTable, updatedStudent]))
+
+
+        //czyszczenie formularza
+        e.target.children[0].value = '';
+        e.target.children[1].value = '';
+        e.target.children[2].value = '';
+        e.target.children[3].value = '';
     };
 
     return (
@@ -49,17 +60,17 @@ const studentsTable = (localStorage.getItem('studentsList') === null) ? [] : JSO
             <div className='students__box'>
                 <h2>Lista uczniów</h2>
                 <ul className='students__list'>
-                    {(localStorage.getItem('studentsList') === null)
-                    ? <li>Brak uczniów...</li>
-                        : JSON.parse(localStorage.getItem('studentsList')).map(item => <Student key={item.id} item={item}/>)}
+                    {(localStorage.getItem('studentsList') === null || JSON.parse(localStorage.getItem('studentsList')).length === 0)
+                    ? <li style={{textAlign: 'center'}}>Brak uczniów...</li>
+                        : JSON.parse(localStorage.getItem('studentsList')).map(item => <Student key={item.id} item={item} removeStudent={removeStudent}/>)}
                 </ul>
             </div>
             <button className='new-student-btn' onClick={switchHidden}>Nowy uczeń</button>
                 <form className='students__form hidden' onSubmit={handleSubmit}>
-                    <input type="text" placeholder='Imię'/>
-                    <input type="text" placeholder='Nazwisko'/>
-                    <input type="text" placeholder='Adres'/>
-                    <input type="tel" placeholder='Numer telefonu'/>
+                    <input type="text" placeholder='Imię' value='Adam'/>
+                    <input type="text" placeholder='Nazwisko' value='Małysz'/>
+                    <input type="text" placeholder='Adres' value='Wisła 123'/>
+                    <input type="tel" placeholder='Numer telefonu' value='743694637'/>
                     <button type='submit'>Zapisz</button>
                 </form>
         </div>
