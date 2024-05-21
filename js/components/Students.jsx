@@ -15,9 +15,11 @@ const [studentsTable, setStudentsTable] = useState([]);
         const listItem = document.getElementById(`student-${id}`);
         const studentsList = JSON.parse(localStorage.getItem('studentsList'));
         const updatedStudentsList = studentsList.filter(student => student.id !== id);
+
+        setStudentsTable(state => state.filter(student => student.id !== id))
         localStorage.setItem('studentsList', JSON.stringify(updatedStudentsList));
 
-        listItem.remove();
+        // listItem.remove();
     }; // handler do usuwania studenta, przekazywany w propsach do komponentu Student
 
     const switchHidden = (e) => {
@@ -60,9 +62,9 @@ const [studentsTable, setStudentsTable] = useState([]);
             <div className='students__box'>
                 <h2>Lista uczniów</h2>
                 <ul className='students__list'>
-                    {(localStorage.getItem('studentsList') === null || JSON.parse(localStorage.getItem('studentsList')).length === 0)
+                    {((studentsTable) === [] || studentsTable.length === 0)
                     ? <li style={{textAlign: 'center'}}>Brak uczniów...</li>
-                        : JSON.parse(localStorage.getItem('studentsList')).map(item => <Student key={item.id} item={item} removeStudent={removeStudent}/>)}
+                        : studentsTable.map(item => <Student key={item.id} item={item} removeStudent={removeStudent}/>)}
                 </ul>
             </div>
             <button className='new-student-btn' onClick={switchHidden}>Nowy uczeń</button>
