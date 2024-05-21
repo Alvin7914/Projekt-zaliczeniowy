@@ -28,7 +28,9 @@ const studentsTable = (localStorage.getItem('studentsList') === null) ? [] : JSO
         switchHidden(e);
 
         const updatedStudent = {
-            id: 0,
+            id: (localStorage.getItem('studentsList') === null || JSON.parse(localStorage.getItem('studentsList')).length === 0)
+            ? 1
+            : JSON.parse(localStorage.getItem('studentsList'))[JSON.parse(localStorage.getItem('studentsList')).length - 1].id + 1,
             name: `${e.target.children[0].value}`,
             surname: `${e.target.children[1].value}`,
             address: `${e.target.children[2].value}`,
@@ -49,7 +51,7 @@ const studentsTable = (localStorage.getItem('studentsList') === null) ? [] : JSO
                 <ul className='students__list'>
                     {(localStorage.getItem('studentsList') === null)
                     ? <li>Brak uczniów...</li>
-                        : JSON.parse(localStorage.getItem('studentsList')).map(item => <Student item={item}/>)}
+                        : JSON.parse(localStorage.getItem('studentsList')).map(item => <Student key={item.id} item={item}/>)}
                 </ul>
             </div>
             <button className='new-student-btn' onClick={switchHidden}>Nowy uczeń</button>
