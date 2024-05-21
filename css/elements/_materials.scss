@@ -31,18 +31,12 @@
     }
   }
 
-
-  .new-file__box {
-    position: absolute;
-    top: rem(30);
-    left: rem(30);
     .new-file- {
       &btn {
         @include main-btn;
         position: absolute;
-        top: 0;
+        top: rem(30);
         left: rem(68);
-        width: rem(107);
         &:active{
           box-shadow: inset 2px 2px 5px black;
         }
@@ -50,6 +44,9 @@
       &form {
         @include secondary-box;
         @include adding-form-styles;
+        position: absolute;
+        top: rem(30);
+        left: rem(30);
         input {
           @include input-new-element;
         }
@@ -72,20 +69,14 @@
         }
       }
     }
-  }
 
 
-  .new-site__box {
-    position: absolute;
-    top: rem(30);
-    left: rem(30);
     .new-site- {
       &btn {
         @include main-btn;
         position: absolute;
-        top: rem(60);
-        left: rem(57);
-        width: rem(128);
+        top: rem(90);
+        left: rem(58);
         &:active{
           box-shadow: inset 2px 2px 5px black;
         }
@@ -93,6 +84,9 @@
       &form {
         @include secondary-box;
         @include adding-form-styles;
+        position: absolute;
+        top: rem(30);
+        left: rem(30);
         input {
           @include input-new-element;
         }
@@ -115,5 +109,4 @@
         }
       }
     }
-  }
 }

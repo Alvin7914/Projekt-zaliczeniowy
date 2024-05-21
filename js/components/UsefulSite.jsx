@@ -3,7 +3,7 @@ import React from "react";
 const UsefulSite = ({site: {id, name, link}, removeSite}) => {
     return (
         <li className='site__instance' id={`site-${id}`}>
-            <a href={link}>{name}</a>
+            <a href={link} target='_blank'>{name}</a>
             <svg xmlns="http://www.w3.org/2000/svg"
                  viewBox="0 0 448 512"
                  width='20'
