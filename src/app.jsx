@@ -1,12 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import MainLayout from "./mainlayout/MainLayout.jsx";
-import Schedules from "./components/Schedules.jsx";
-import Students from "./components/Students.jsx";
-import Materials from "./components/Materials.jsx";
-import Curriculum from "./components/Curriculum.jsx";
-import Notes from "./components/Notes.jsx";
+import MainLayout from "./js/mainlayout/MainLayout.jsx";
+import Schedules from "./js/components/Schedules.jsx";
+import Students from "./js/components/Students.jsx";
+import Materials from "./js/components/Materials.jsx";
+import Curriculum from "./js/components/Curriculum.jsx";
+import Notes from "./js/components/Notes.jsx";
 
 const App = () => {
 
