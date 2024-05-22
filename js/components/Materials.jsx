@@ -92,8 +92,8 @@ const Materials = () => {
             setFileErrorsArray(state => [...state, error1]);
             errors.push(error1);
         }
-        if (inputFileName.length < 4) {
-            const error2 = 'Nazwa pliku musi składać się z co najmniej 4 liter';
+        if (inputFileName.length < 4 || inputFileName.length > 30) {
+            const error2 = 'Nazwa pliku musi składać się z co najmniej 4 i co najwyżej 30 znaków';
             setFileErrorsArray(state => [...state, error2]);
             errors.push(error2);
         }
@@ -137,8 +137,8 @@ const Materials = () => {
             setSiteErrorsArray(state => [...state, error1]);
             errors.push(error1);
         }
-        if (inputSiteName.length < 4) {
-            const error2 = 'Nazwa strony musi składać się z co najmniej 4 liter';
+        if (inputSiteName.length < 4 || inputSiteName.length > 30) {
+            const error2 = 'Nazwa strony musi składać się z co najmniej 4 i co najwyżej 30 znaków';
             setSiteErrorsArray(state => [...state, error2]);
             errors.push(error2);
         }

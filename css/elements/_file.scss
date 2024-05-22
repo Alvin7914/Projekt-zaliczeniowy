@@ -1,0 +1,20 @@
+@import '../generic/colors';
+@import '../generic/functions';
+@import '../generic/mixins';
+
+.file__instance {
+  @include ul-list-element-with-svg;
+  svg {
+    margin-right: rem(20);
+  }
+}
+
+.file__item {
+  @include ternary-box;
+  text-decoration: none;
+  text-align: center;
+  font-style: oblique;
+  color: black;
+  margin-right: rem(20);
+}
+

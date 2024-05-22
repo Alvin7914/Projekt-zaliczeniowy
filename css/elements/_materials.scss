@@ -17,6 +17,9 @@
       &files {
         display: flex;
         flex-direction: column;
+        margin-right: rem(30);
+        max-height: rem(655);
+        overflow-y: auto;
         h2 {
           @include h2-title;
         }
@@ -24,6 +27,8 @@
       &useful-sites {
         display: flex;
         flex-direction: column;
+        max-height: rem(655);
+        overflow-y: auto;
         h2 {
           @include h2-title;
         }

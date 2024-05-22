@@ -1,0 +1,19 @@
+@import '../generic/colors';
+@import '../generic/functions';
+@import '../generic/mixins';
+
+.site__instance {
+  @include ul-list-element-with-svg;
+  svg {
+    margin-right: rem(20);
+  }
+}
+
+.site__item {
+  @include ternary-box;
+  text-decoration: none;
+  text-align: center;
+  font-style: oblique;
+  color: black;
+  margin-right: rem(20);
+}

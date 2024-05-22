@@ -3,7 +3,7 @@ import React from "react";
 const File = ({file: {id, name, link}, removeFile}) => {
     return (
         <li className='file__instance' id={`file-${id}`}>
-            <a href={link} target='_blank'>{name}</a>
+            <a href={link} target='_blank' className='file__item'>{name}</a>
             <svg xmlns="http://www.w3.org/2000/svg"
                  viewBox="0 0 448 512"
                  width='20'

@@ -9,6 +9,8 @@
   gap: rem(20);
   .students__box {
     padding: rem(30) rem(30) rem(10) rem(30);
+    max-height: rem(700);
+    overflow-y: auto;
    @include main-box;
     h2 {
       @include h2-title;
