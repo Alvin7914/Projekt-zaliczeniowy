@@ -26,7 +26,6 @@ const [errorsArray, setErrorsArray] = useState([])
 
     // handler do usuwania ucznia, przekazywany w propsach do komponentu Student
     const removeStudent = (id) => {
-        const listItem = document.getElementById(`student-${id}`);
         const studentsList = JSON.parse(localStorage.getItem('studentsList'));
         const updatedStudentsList = studentsList.filter(student => student.id !== id);
 
@@ -136,24 +135,24 @@ const [errorsArray, setErrorsArray] = useState([])
                 <h2>Lista uczniów</h2>
                 <ul className='students__list'>
                     {(studentsTable.length === 0)
-                    ? <li style={{textAlign: 'center'}}>Brak uczniów...</li>// wyrenderowanie odpowiedniego 'li' gdy lista uczniów jest pusta
+                        ? <li style={{textAlign: 'center'}}>Brak uczniów...</li>// wyrenderowanie odpowiedniego 'li' gdy lista uczniów jest pusta
                         : studentsTable.map(item => <Student key={item.id} item={item} removeStudent={removeStudent}/>) //mapowanie listy uczniów
-                        }
+                    }
                 </ul>
             </div>
             <button className='new-student-btn' onClick={switchHidden}>Nowy uczeń</button>
-                <form className='students__form hidden' onSubmit={handleSubmit}>
-                    <input type="text" placeholder='Imię' id='input-name'/>
-                    <input type="text" placeholder='Nazwisko' id='input-surname'/>
-                    <input type="text" placeholder='Adres' id='input-address'/>
-                    <input type="tel" min='0' placeholder='Numer telefonu' id='input-phone'/>
-                    <div>
-                        <button type='submit'>Zapisz</button>
-                        <span className='cancel-1' onClick={cancelNewStudent}></span>
-                        <span className='cancel-2' onClick={cancelNewStudent}></span>
-                    </div>
-                    <NewStudentValidationErrors errorsArray={errorsArray} />
-                </form>
+            <form className='students__form hidden' onSubmit={handleSubmit}>
+                <input type="text" placeholder='Imię' id='input-name'/>
+                <input type="text" placeholder='Nazwisko' id='input-surname'/>
+                <input type="text" placeholder='Adres' id='input-address'/>
+                <input type="tel" min='0' placeholder='Numer telefonu' id='input-phone'/>
+                <div>
+                    <button type='submit'>Zapisz</button>
+                    <span className='cancel-1' onClick={cancelNewStudent}></span>
+                    <span className='cancel-2' onClick={cancelNewStudent}></span>
+                </div>
+                <NewStudentValidationErrors errorsArray={errorsArray}/>
+            </form>
         </section>
     );
 };

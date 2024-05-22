@@ -1,4 +1,5 @@
 @import '../generic/functions';
+@import '../generic/mixins';
 
 .login__box {
   background-color: #f1eed6;
@@ -28,14 +29,7 @@
       font-family: 'Times New Roman', sans-serif;
     }
     .login__submit-btn {
-      background-color: #c0ba8e;
-      border: 1px solid black;
-      border-radius: 10px;
-      padding: rem(5) rem(30);
-      font-size: rem(20);
-      font-style: oblique;
-      font-family: 'Times New Roman', sans-serif;
-      font-weight: 600;
+      @include secondary-btn;
     }
   }
 }

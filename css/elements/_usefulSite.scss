@@ -2,21 +2,18 @@
 @import '../generic/functions';
 @import '../generic/mixins';
 
-
-
-.student__instance {
+.site__instance {
   @include ul-list-element-with-svg;
+  svg {
+    margin-right: rem(20);
+  }
 }
 
-.student__item {
+.site__item {
   @include ternary-box;
+  text-decoration: none;
+  text-align: center;
+  font-style: oblique;
+  color: black;
   margin-right: rem(20);
-  p {
-    margin-bottom: rem(10);
-    text-align: center;
-    font-style: oblique;
-    &:nth-child(4) {
-      margin-bottom: 0;
-    }
-  }
 }
