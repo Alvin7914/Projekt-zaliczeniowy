@@ -42,4 +42,39 @@
       font-weight: bold;
     }
   }
+
+  .new-entry-btn {
+    @include main-btn;
+    position: absolute;
+    top: rem(30);
+    left: rem(55);
+    &:active{
+      box-shadow: inset 2px 2px 5px black;
+    }
+  }
+
+  .schedules__form {
+    @include secondary-box;
+    @include adding-form-styles;
+    flex-direction: row;
+    position: absolute;
+    top: rem(30);
+    left: rem(30);
+    gap: rem(20);
+    &-column {
+      display: flex;
+      flex-direction: column;
+      label {
+        font-size: rem(20);
+        font-family: 'Arial', sans-serif;
+        margin-bottom: rem(10);
+      }
+      select {
+        border-radius: 10px;
+      }
+    }
+    button {
+      @include secondary-btn;
+    }
+  }
 }
