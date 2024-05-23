@@ -36,10 +36,18 @@
       padding-top: rem(5);
       padding-bottom: rem(5);
       background-color: $color-table-cell;
+      &:hover {
+        color: red;
+        cursor: pointer;
+      }
     }
 
     tr td:first-child {
       font-weight: bold;
+      &:hover {
+        color: black;
+        cursor: auto;
+      }
     }
   }
 

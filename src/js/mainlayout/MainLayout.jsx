@@ -3,6 +3,7 @@ import {Outlet} from "react-router-dom";
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
 import LoginWindow from "../components/LoginWindow.jsx";
+import MainPage from "../components/MainPage.jsx";
 
 const MainLayout = () => {
     return (

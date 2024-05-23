@@ -7,6 +7,7 @@ import Students from "./js/components/Students.jsx";
 import Materials from "./js/components/Materials.jsx";
 import Curriculum from "./js/components/Curriculum.jsx";
 import Notes from "./js/components/Notes.jsx";
+import MainPage from "./js/components/MainPage.jsx";
 
 const App = () => {
 
@@ -14,6 +15,7 @@ const App = () => {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<MainLayout />}>
+                    <Route path='/' element={<MainPage />} />
                     <Route path='schedule' element={<Schedules />} />
                     <Route path='students' element={<Students />} />
                     <Route path='materials' element={<Materials />} />
