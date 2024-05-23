@@ -18,8 +18,6 @@ const Header = () => {
                         <li className="nav__element"><Link to='/schedule' className='disabled-link'>Plan zajęć</Link></li>
                         <li className="nav__element"><Link to='/students' className='disabled-link'>Lista uczniów</Link></li>
                         <li className="nav__element"><Link to='/materials' className='disabled-link'>Materiały edukacyjne</Link></li>
-                        <li className="nav__element"><Link to='/curriculum' className='disabled-link'>Podstawa programowa</Link></li>
-                        <li className="nav__element"><Link to='/notes' className='disabled-link'>Notatki</Link></li>
                     </ul>
                 </nav>
             </div>

@@ -30,6 +30,7 @@
     }
 
     td {
+      vertical-align: middle;
       border: 1px solid black;
       border-radius: 7px;
       text-align: center;
@@ -55,7 +56,7 @@
     @include main-btn;
     position: absolute;
     top: rem(30);
-    left: rem(55);
+    left: rem(85);
     &:active{
       box-shadow: inset 2px 2px 5px black;
     }

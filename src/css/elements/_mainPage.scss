@@ -4,76 +4,101 @@
 
 .main-page__box {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   @include main-box;
   padding: rem(30);
 
-  table {
-    font-family: 'Arial', sans-serif;
-    border-collapse: separate;
-    empty-cells: show;
-    margin-right: rem(20);
-
-    th {
-      height: auto;
-      border: 1px solid black;
-      border-radius: 7px;
-      width: 150px;
-      font-size: rem(20);
-      font-weight: 600;
-      padding-top: rem(5);
-      padding-bottom: rem(5);
-      padding-inline: rem(10);
-      background-color: $color-table-cell;
-    }
-
-    caption {
-      margin-bottom: 20px;
-      font-size: rem(30);
-      font-weight: bolder;
-    }
-
-
-    td {
-      height: auto;
-      border: 1px solid black;
-      border-radius: 7px;
-      text-align: center;
-      padding-top: rem(5);
-      padding-bottom: rem(5);
-      background-color: $color-table-cell;
-
-    }
-
-    tr td:first-child {
-      font-weight: bold;
-
-    }
-  }
-
-  .main-page__students {
+  .main-page__data {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    h2 {
-      @include h2-title;
+    align-items: flex-start;
+    table {
       font-family: 'Arial', sans-serif;
-      font-size: rem(30);
+      border-collapse: separate;
+      empty-cells: show;
+      margin-right: rem(20);
+
+      th {
+        height: auto;
+        border: 1px solid black;
+        border-radius: 7px;
+        width: 150px;
+        font-size: rem(20);
+        font-weight: 600;
+        padding-top: rem(5);
+        padding-bottom: rem(5);
+        padding-inline: rem(10);
+        background-color: $color-table-cell;
+      }
+
+      caption {
+        margin-bottom: 20px;
+        font-size: rem(30);
+        font-weight: bolder;
+      }
+
+
+      td {
+        vertical-align: middle;
+        height: auto;
+        border: 1px solid black;
+        border-radius: 7px;
+        text-align: center;
+        padding-top: rem(5);
+        padding-bottom: rem(5);
+        background-color: $color-table-cell;
+
+      }
+
+      tr td:first-child {
+        font-weight: bold;
+
+      }
     }
-    li {
-      .main-page__student {
-        @include ternary-box;
-        margin-bottom: rem(10);
-        p {
+
+    .main-page__students {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h2 {
+        @include h2-title;
+        font-family: 'Arial', sans-serif;
+        font-size: rem(30);
+      }
+      li {
+        .main-page__student {
+          @include ternary-box;
           margin-bottom: rem(10);
-          text-align: center;
-          font-style: oblique;
-          &:nth-child(4) {
-            margin-bottom: 0;
+          p {
+            margin-bottom: rem(10);
+            text-align: center;
+            font-style: oblique;
+            &:nth-child(4) {
+              margin-bottom: 0;
+            }
           }
         }
       }
     }
+  }
 
+  .main-page__jokes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: rem(20);
+    @include ternary-box;
+    h2 {
+      @include h2-title;
+    }
+    p {
+      text-align: center;
+      max-width: rem(500);
+      font-size: rem(20);
+      font-weight: bold;
+      font-style: oblique;
+      margin-bottom: rem(10);
+      margin-inline: rem(10);
+    }
   }
 }

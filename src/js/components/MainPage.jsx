@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from "react";
 import {API_KEY, API_URL} from "../api/constants.jsx";
+import {library} from "@fortawesome/fontawesome-svg-core";
 
 const MainPage = () => {
     const [schedule, setSchedule] = useState([]);
+    const [joke, setJoke] = useState(false);
 
     useEffect(() => {
         const date = new Date;
@@ -12,6 +14,25 @@ const MainPage = () => {
         const todaySchedule = classesList.filter(classItem => classItem.day === todayName) // wyfiltrowanie uczniow ktorzy maja dzis zajecia
 
         setSchedule(todaySchedule)
+
+        fetch(`${API_URL}`, {
+            method: 'GET',
+            headers: {
+                'X-Api-Key': `${API_KEY}`,
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(resp => {
+                if (!resp.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return resp.json();
+            })
+            .then(data => {
+                setJoke(data);
+                console.log(data)
+            })
+            .catch(err => console.log('There was a problem with fetch operation:', err));
     }, []);
 
 //funkcja zwracająca polską nazwę dnia tygodnia w <th>, przyjmująca datę
@@ -35,45 +56,52 @@ const MainPage = () => {
 
     return (
         <section className='main-page__box'>
-            <table>
-                <caption>
-                    Dzisiejszy plan zajęć
-                </caption>
-                <thead>
-                <tr>
-                    <th>Godziny</th>
-                    {getDayNamePl(new Date())}
-                </tr>
-                </thead>
-                <tbody>
-                {timeSlots.map(time => {
-                    const classAtThisTime = schedule.find(classItem => classItem.time === time);
-                    return (
-                        <tr key={time}>
-                            <td>{time.replace('-', ' - ')}</td>
-                            <td>
-                                {classAtThisTime ? `${classAtThisTime.student.name}, ${classAtThisTime.student.address}` : ''}
-                            </td>
-                        </tr>
-                    );
-                })}
-                </tbody>
-            </table>
-            <div className='main-page__students'>
-                <h2>Uczniowie na dziś</h2>
-                <ul>
-                    {uniqueStudents.map(classItem => <li key={classItem.student.id}>
-                        <div className='main-page__student'>
-                            <p>{classItem.student.name}</p>
-                            <p>{classItem.student.surname}</p>
-                            <p>{classItem.student.address}</p>
-                            <p>tel. {classItem.student.phone}</p>
-                        </div>
-                    </li>)}
-                </ul>
+            <div className='main-page__data'>
+                <table>
+                    <caption>
+                        Dzisiejszy plan zajęć
+                    </caption>
+                    <thead>
+                    <tr>
+                        <th>Godziny</th>
+                        {getDayNamePl(new Date())}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {timeSlots.map(time => {
+                        const classAtThisTime = schedule.find(classItem => classItem.time === time);
+                        return (
+                            <tr key={time}>
+                                <td>{time.replace('-', ' - ')}</td>
+                                <td>
+                                    {classAtThisTime ? `${classAtThisTime.student.name}, ${classAtThisTime.student.address}` : ''}
+                                </td>
+                            </tr>
+                        );
+                    })}
+                    </tbody>
+                </table>
+                <div className='main-page__students'>
+                    <h2>Uczniowie na dziś</h2>
+                    <ul>
+                        {uniqueStudents.map(classItem => <li key={classItem.student.id}>
+                            <div className='main-page__student'>
+                                <p>{classItem.student.name}</p>
+                                <p>{classItem.student.surname}</p>
+                                <p>{classItem.student.address}</p>
+                                <p>tel. {classItem.student.phone}</p>
+                            </div>
+                        </li>)}
+                    </ul>
+                </div>
             </div>
             <aside className='main-page__jokes'>
-
+                <h2>Mini-żarcik :)</h2>
+                {joke ? (
+                    <p>{joke[0].joke}</p>
+                ) : (
+                    <p>Ładowanie...</p>
+                )}
             </aside>
         </section>
     )
