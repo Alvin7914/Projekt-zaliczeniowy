@@ -35,6 +35,15 @@ const Schedules = () => {
         });
     };
 
+    const cancelNewEntry = (e) => {
+        const button = document.querySelector('.new-entry-btn');
+        const form = document.querySelector('.schedules__form');
+
+        //chowanie okna dodawania wpisu
+        button.classList.toggle('hidden');
+        form.classList.toggle('hidden');
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const selectStudentId = document.querySelector('#students').value;
@@ -126,7 +135,11 @@ const Schedules = () => {
                         <option value="19.00-20.00">19.00 - 20.00</option>
                     </select>
                 </div>
-                <button type='submit'>Zapisz</button>
+                <div>
+                    <button type='submit'>Zapisz</button>
+                    <span className='cancel-1' onClick={cancelNewEntry}></span>
+                    <span className='cancel-2' onClick={cancelNewEntry}></span>
+                </div>
             </form>
         </section>
     );

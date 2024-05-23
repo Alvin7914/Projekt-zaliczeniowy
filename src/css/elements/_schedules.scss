@@ -81,8 +81,23 @@
         border-radius: 10px;
       }
     }
-    button {
+    div:last-of-type {
+      position: relative;
+      button {
       @include secondary-btn;
+        margin-right: rem(20);
     }
+      span {
+        @include x-mark-spans;
+        top: 14px;
+        left: 125px;
+        &.cancel-1 {
+          transform: rotate(45deg);
+        }
+        &.cancel-2 {
+          transform: rotate(-45deg);
+        }
+      }}
+
   }
 }
