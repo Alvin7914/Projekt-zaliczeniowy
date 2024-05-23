@@ -1,6 +1,6 @@
-@import '../generic/colors';
-@import '../generic/functions';
-@import '../generic/variables';
+@import '../utility/colors';
+@import '../utility/functions';
+@import '../utility/variables';
 
 * {
   margin: 0;
@@ -18,7 +18,7 @@ html, body {
 }
 
 .container {
-  width: rem(1400);
+  width: 100%;
   margin: 0 auto;
 }
 

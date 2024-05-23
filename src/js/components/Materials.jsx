@@ -35,9 +35,6 @@ const Materials = () => {
         localStorage.setItem('sitesList', JSON.stringify(updatedSitesList));
     }
 
-
-    // TU DODAC HANDLERy DO CHOWANIA OKIENKA DODAWANIA itp.
-
     const switchHidden = (e) => {
         e.preventDefault();
 
