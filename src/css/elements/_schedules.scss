@@ -1,6 +1,6 @@
-@import '../generic/functions';
-@import '../generic/colors';
-@import '../generic/mixins';
+@import '../utility/functions';
+@import '../utility/colors';
+@import '../utility/mixins';
 
 .schedules__box {
   @include main-box;
@@ -80,6 +80,7 @@
       }
       select {
         border-radius: 10px;
+        max-width: 130px;
       }
     }
     div:last-of-type {

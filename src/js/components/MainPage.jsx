@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import {API_KEY, API_URL} from "../api/constants.jsx";
-import {library} from "@fortawesome/fontawesome-svg-core";
 
 const MainPage = () => {
     const [schedule, setSchedule] = useState([]);
@@ -30,7 +29,6 @@ const MainPage = () => {
             })
             .then(data => {
                 setJoke(data);
-                console.log(data)
             })
             .catch(err => console.log('There was a problem with fetch operation:', err));
     }, []);

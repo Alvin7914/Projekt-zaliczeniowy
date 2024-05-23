@@ -1,6 +1,6 @@
-@import '../generic/colors';
-@import '../generic/functions';
-@import '../generic/mixins';
+@import '../utility/colors';
+@import '../utility/functions';
+@import '../utility/mixins';
 
 .materials {
   display: flex;
@@ -9,8 +9,6 @@
   gap: rem(20);
   .materials__list {
     display: flex;
-    //justify-content: center;
-    //align-items: center;
     padding: rem(30) rem(30) rem(10) rem(30);
     @include main-box;
     .materials__ {

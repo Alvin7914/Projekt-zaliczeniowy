@@ -14,7 +14,7 @@ const [errorsArray, setErrorsArray] = useState([])
         }
     }, []);
 
-// funkcja sprawdzająca czy string składa się tylko z liter lun myślników
+// funkcja sprawdzająca czy string składa się tylko z liter lub myślników
     function isAlphabetic(str) {
         return /^[A-Za-zĄąĆćĘęŁłŃńÓóŚśŹźŻż-]+$/.test(str);
     }
@@ -145,7 +145,7 @@ const [errorsArray, setErrorsArray] = useState([])
                 <input type="text" placeholder='Imię' id='input-name'/>
                 <input type="text" placeholder='Nazwisko' id='input-surname'/>
                 <input type="text" placeholder='Adres' id='input-address'/>
-                <input type="tel" min='0' placeholder='Numer telefonu' id='input-phone'/>
+                <input type="tel" placeholder='Numer telefonu' id='input-phone'/>
                 <div>
                     <button type='submit'>Zapisz</button>
                     <span className='cancel-1' onClick={cancelNewStudent}></span>
